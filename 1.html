@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Upload Profile Picture</h2>
+    <input type="file" id="fileInput" accept="image/*" />
+    <div id="preview"></div>
+
+    <script>
+      const fileInput = document.getElementById("fileInput");
+      const preview = document.getElementById("preview");
+
+      fileInput.addEventListener("change", function (event) {
+        const file = event.target.files[0];
+
+        if (file) {
+          const reader = new FileReader();
+
+          reader.onload = function (event) {
+            const image = new Image();
+            image.src = event.target.result;
+            image.style.maxWidth = "20%";
+            preview.innerHTML = "";
+            preview.appendChild(image);
+          };
+
+          reader.readAsDataURL(file);
+        }
+      });
+    </script>
+  </body>
+</html>

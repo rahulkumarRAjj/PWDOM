@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script>
+      const options = ["JavaScript", "Java", "Python", "c++"];
+
+      const heading = document.createElement("h1");
+      heading.textContent = "What is your favorite programming language";
+
+      // Create the dropdown element
+      const dropdown = document.createElement("select");
+
+      // Loop through the options array and create dropdown items
+      options.forEach((option) => {
+        const dropdownItem = document.createElement("option");
+        dropdownItem.textContent = option;
+        dropdown.appendChild(dropdownItem);
+      });
+
+      // Append the heading and dropdown to the container element
+      const container = document.getElementById("container");
+      container.appendChild(heading);
+      container.appendChild(dropdown);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .btns {
+        display: flex;
+      }
+      .first {
+        font-size: 30px;
+      }
+      .Second {
+        font-size: 30px;
+        font-weight: bold;
+        margin-left: 30px;
+      }
+      .text {
+        display: flex;
+        margin-left: 30px;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h1>Counter</h1>
+      <h1 class="text">0</h1>
+    </div>
+
+    <div class="btns">
+      <button class="first">-</button>
+      <button class="Second">+</button>
+    </div>
+
+    <script>
+      const mainvalue = document.querySelector(".text");
+      let curvalue = 0;
+
+      const btndecrement = document.querySelector(".first");
+      const btnincrement = document.querySelector(".Second");
+
+      btndecrement.addEventListener("click", () => {
+        curvalue--;
+        mainvalue.textContent = curvalue;
+        if (curvalue > 0) {
+          count--;
+          updateCounter();
+        } else {
+          alert("Counter cannot go below zero!");
+        }
+      });
+
+      btnincrement.addEventListener("click", () => {
+        curvalue++;
+        mainvalue.textContent = curvalue;
+      });
+    </script>
+  </body>
+</html>

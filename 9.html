@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="loginBtn">Login</button>
+    <button id="logoutBtn">Logout</button>
+    <h2 id="status">User not logged in</h2>
+
+    <script>
+      const loginBtn = document.getElementById("loginBtn");
+      const logoutBtn = document.getElementById("logoutBtn");
+      const status = document.getElementById("status");
+
+      // Check if user is already logged in when the page loads
+      updateStatus();
+
+      // Add event listener for login button
+      loginBtn.addEventListener("click", function () {
+        localStorage.setItem("loggedIn", "true");
+        updateStatus();
+      });
+
+      // Add event listener for logout button
+      logoutBtn.addEventListener("click", function () {
+        localStorage.removeItem("loggedIn");
+        updateStatus();
+      });
+
+      // Function to update the user status text
+      function updateStatus() {
+        if (localStorage.getItem("loggedIn")) {
+          status.textContent = "User is logged in";
+        } else {
+          status.textContent = "User not logged in";
+        }
+      }
+    </script>
+  </body>
+</html>
